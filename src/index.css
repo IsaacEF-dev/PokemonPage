@@ -14,7 +14,8 @@ body{
 }
 
 .bg-card-img img{
-  width: 41%;
+  width: 120px;
+  height: 110px;
   z-index: 101;
 }
 .card{
@@ -49,7 +50,7 @@ body{
 
 .card-title{
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #686868;
   transition: all .2s;
@@ -69,11 +70,12 @@ body{
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: -24px;
+  bottom: -22px;
   left: 0;
   right: 0;
   margin: auto;
   box-shadow: 0px 5px 8px -1px #515151c6;
+  
 }
 
 .btn-pokemon:hover{
@@ -86,5 +88,55 @@ body{
   color: #b0b0b0;
   text-align: center;
 }
+.container__paginador{
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.paginador{
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+  justify-content: center;
+  padding: .05rem .7rem;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 15px -5px rgba(0,0,0,0.75);
+}
 
+.paginador a{
+  padding:0 1rem;
+  font-size: 1.05rem;
+  color: #0093E9;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0s;
+}
+
+.paginador a.active{
+  position: relative;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  padding: .6rem 1rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  color: white;
+  top: 0px;
+  box-shadow: 1px 1px 15px -5px #0094e9d0;
+  z-index: 1001;
+  margin: 0 .7rem;
+}
+
+
+
+.paginador .next,
+.paginador .back{
+  font-size: 1.3rem;
+  font-weight: 700;
+  color:  #0094e9d0;
+  z-index: 1001;
+  padding: 0;
+  border: none;
+  background-color: white;
+}
 /*ola background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);*/
