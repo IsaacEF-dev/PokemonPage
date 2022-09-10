@@ -5,13 +5,9 @@ import { Pagination } from './Pagination';
 
 export const ListCards = () => {
 
-  
-
   const [pagina, setPagina] = useState("https://pokeapi.co/api/v2/pokemon?limit=12&&offset=0")
   
   const {data,isLoading}=useFetch(pagina);
-
-  
   
   
   return (

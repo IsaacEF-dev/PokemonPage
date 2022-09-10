@@ -1,33 +1,42 @@
-import { useEffect } from 'react';
 import { FaAngleLeft,FaAngleRight } from 'react-icons/fa' ;  
-import { useParams } from 'react-router-dom';
-import { usePaginador } from '../hooks/usePaginador';
+import { useForm } from '../hooks/useForm';
+
 export const Pagination = ({data , setPagina}) => {
-  const {onMove,onPaginator}=usePaginador(4)
-  let pagina=1;
-  function back(){
-    const r=data.previous;
-    console.log(r)
-    return data.previous;
+
+  const {formState,inputChange}=useForm({pagina:1})
+  const limite=parseInt(Math.ceil(data.count/12));
+
+  const movePage=(val)=>{
+    
+    if((formState.pagina-val)>=1 && (formState.pagina-val)<limite){
+
+      formState.pagina-=val;
+      let move=((formState.pagina-1)*12);
+
+      return `https://pokeapi.co/api/v2/pokemon?offset=${move}&limit=12`;
+    }
+  } 
+
+  const onPagina=(e)=>{
+    e.preventDefault();
+    setPagina( movePage(0));
   }
-
-  function sig(){
-    return data.next;
-  }
-
-  useEffect(() => {
-
-  }, [pagina])
-  
   
   return (
     <div className="container__paginador">
-        <div className="paginador" onClick={onPaginator}>
-          <button className='back' onClick={e=>setPagina(back)}><FaAngleLeft/></button>
+        <div className="paginador">
+          <button className='back' onClick={e=>setPagina(movePage(1))}><FaAngleLeft/></button>
               
-                <a key={pagina} href="" className='active'>{pagina}</a>
+                <form action="" onSubmit={onPagina}>
+                  <input className='active' 
+                  name='pagina'
+                  type="text" 
+                  value={formState.pagina} 
+                  onChange={inputChange}
+                  />
+                </form>
 
-          <button className='next' onClick={e=>setPagina(sig)}><FaAngleRight/></button>
+          <button className='next' onClick={e=>setPagina(movePage(-1))}><FaAngleRight/></button>
         </div>
     </div>
   )

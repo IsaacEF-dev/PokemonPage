@@ -12,13 +12,13 @@ export const NavBar = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-3 ">
+        <nav className="navbar navbar-expand-sm  p-3 ">
             
             <Link 
                 className="navbar-brand" 
                 to="/"
             >
-                Asociaciones
+                <img src="../../../assets/Pokemon-Logo.png" alt="" className='logo'/>
             </Link>
 
             <div className="navbar-collapse">
@@ -32,19 +32,6 @@ export const NavBar = () => {
                     </NavLink>
                     
                 </div>
-            </div>
-
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
-                <ul className="navbar-nav ml-auto">
-                    <span className="nav-link nav-item text-info">
-                        Isaac Escutia
-                    </span>
-                    <button 
-                    className='nav-link nav-item btn'
-                    onClick={onLogout}>
-                    Logout
-                    </button>
-                </ul>
             </div>
         </nav>
     )

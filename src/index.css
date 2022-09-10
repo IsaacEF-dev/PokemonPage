@@ -2,6 +2,17 @@
 body{
   font-family: 'Roboto', sans-serif;
 }
+img{
+  max-width: 100%;
+}
+
+.logo{
+  width: 130px;
+}
+
+.navbar{
+  box-shadow: 1px 1px 15px -5px rgba(0,0,0,0.75);
+}
 
 .bg-card-img{
   position: relative;
@@ -96,7 +107,9 @@ body{
 }
 .paginador{
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
   justify-content: center;
   padding: .05rem .7rem;
@@ -106,28 +119,34 @@ body{
 }
 
 .paginador a{
-  padding:0 1rem;
   font-size: 1.05rem;
-  color: #0093E9;
+  background-color: #0093E9;
+  width: 5rem;
+  height: 2rem;
   text-decoration: none;
   font-weight: 600;
   transition: all 0s;
 }
 
-.paginador a.active{
-  position: relative;
+.paginador .active{
+  position: absolute;
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-  padding: .6rem 1rem;
+  border: none;
+  width: 2.9rem;
+  height: 3rem;
   border-radius: 50%;
+  top: -6px;
+  box-shadow: 1px 1px 15px -5px #0094e9d0;
+  z-index: 1005;
+  margin: 0 .7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.3rem;
   color: white;
-  top: 0px;
-  box-shadow: 1px 1px 15px -5px #0094e9d0;
-  z-index: 1001;
-  margin: 0 .7rem;
+  text-align: center;
+  outline: none;
 }
-
-
 
 .paginador .next,
 .paginador .back{
@@ -138,5 +157,57 @@ body{
   padding: 0;
   border: none;
   background-color: white;
+}
+
+.paginador .next{
+  padding-left: 4rem;
+}
+
+
+.img__principal{
+  height: 70%;
+}
+
+.galeria{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.galeria a{
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #838282;
+  border-radius: .2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: .5rem;
+  margin-top: .8rem;
+}
+
+.galeria a.active::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(153, 153, 153, 0.286) ;
+}
+
+.galeria a img{
+  width: 73px;
+}
+
+.galeria a img.prime{
+  width: 51px;
+}
+
+.w-60{
+  width: 60%;
+}
+
+.w-md-80{
+  
 }
 /*ola background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);*/
