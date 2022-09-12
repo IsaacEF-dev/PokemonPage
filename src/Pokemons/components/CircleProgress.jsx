@@ -1,0 +1,19 @@
+import React from 'react'
+
+export const CircleProgress = ({base_stat,stat,id}) => {
+  return (
+       
+    <div className="content-bar">
+        <div className="d-flex justify-content-between align-items-center">
+            <p className='stat'>{stat.name}</p>
+            <span className="porcent">{base_stat}%</span>
+        </div>
+        <div className="content-progess">
+            <div className="bar__progress" style={{width:`${base_stat}%`}}>
+            </div>
+        </div>
+    </div>
+    
+       
+  )
+}

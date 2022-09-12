@@ -15,7 +15,7 @@ export const Cards = ({name, url}) => {
         <div className="card">
             <div className="card-top">
                 <div className="bg-card-img">
-                  <div className="bg-top"></div>
+                  <div className={`bg-top ${(data.types[0].type.name) ? data.types[0].type.name:global}` }></div>
                   <img src={image} alt="" />
                 </div>
             </div>
