@@ -12,7 +12,7 @@ export const Pagination = ({data , setPagina}) => {
 
       formState.pagina-=val;
       let move=((formState.pagina-1)*12);
-
+      
       return `https://pokeapi.co/api/v2/pokemon?offset=${move}&limit=12`;
     }
   } 
