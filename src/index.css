@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-body{
+body,#root{
   font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
 }
 img{
   max-width: 100%;
@@ -12,6 +13,12 @@ img{
 
 .navbar{
   box-shadow: 1px 1px 15px -5px rgba(0,0,0,0.75);
+}
+.containers{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
 }
 
 .bg-card-img{
@@ -78,9 +85,31 @@ background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
   background-image: radial-gradient( circle 674px at 18.3% 77%,  rgba(139,186,244,1) 3.4%, rgba(15,51,92,1) 56.6% );
 }
 
-.poison{
+.poison,.ice{
   background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(171,102,255,1) 0%, rgba(116,182,247,1) 90% );
 }
+
+.fairy{
+  background-color: #FF9A8B;
+  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+.electric,.ground,.psychic{
+  background-image: radial-gradient( circle 489px at 49.3% 46.6%,  rgba(255,214,126,1) 0%, rgba(253,200,0,1) 100.2% );
+}
+
+.fighting{
+  background-image: radial-gradient( circle 911px at 0.4% 50.5%,  rgba(187,68,48,1) 18.7%, rgba(21,30,33,1) 90% );
+}
+
+.rock{
+  background-image: linear-gradient( 76.3deg,  rgba(44,62,78,1) 12.6%, rgba(69,103,131,1) 82.8% );
+}
+
+.ghost{
+  background-image: linear-gradient( 358.7deg,  rgba(42,136,157,1) 1.7%, rgba(122,197,214,1) 51.1%, rgba(211,232,242,1) 95.5% );
+}
+
 
 .card-title{
   text-align: center;
@@ -187,7 +216,7 @@ background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
 }
 
 .content__img{
-  border: 1px solid rgb(167, 167, 167);
+  border: 1px solid rgb(255, 255, 255);
   border-radius:1rem ;
  width: 100%;
  height: 200px;
@@ -205,6 +234,9 @@ background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1005;
 }
 
 .galeria .image__opcion{
@@ -236,12 +268,14 @@ background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
   padding: .3rem .2rem 0 .2rem;
 }
 
-.w-60{
-  width: 57%;
+.w-45{
+  width: 45%;
 }
 
-.w-md-80{
-  
+@media(max-width:1100px){
+  .w-60{
+    width: 55%;
+  }
 }
 
 .title{
@@ -266,7 +300,6 @@ background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
   width: 80%;
   height: 100%;
   border-radius: 1rem;
-  background-image:  linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 
 .content-progess .porcent{
@@ -286,4 +319,53 @@ background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
   color: #525252;
   font-size: .85rem;
 }
+
+.text{
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #484848; 
+}
+
+.round-progess{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  background-color: #ffffff;
+  padding: .2rem;
+  box-shadow: 2px 2px 5px rgba(27, 27, 27, 0.196),
+  0px -1px 3px rgba(27, 27, 27, 0.278), 
+  inset 0px -1px 3px rgba(27, 27, 27, 0.459);
+}
+
+.circle__progress{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #eef2f4;
+}
+
+.informacion__pokemon{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.tipo__informacion{
+  text-align: center;
+  line-height: .2rem;
+  color: #585858;
+}
+
+.tipo__informacion span{
+  font-weight: 700;
+  font-size: .8rem;
+}
+.tipo__informacion p{
+  font-size: 1rem;
+}
+
 /*ola background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);*/

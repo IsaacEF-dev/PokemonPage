@@ -18,27 +18,27 @@ export const PokemonPage = () => {
 
   const onChangeImage=(e)=>{
     if(e.target.tagName!=="IMG") return ;
-
+    
     const active=document.querySelector(".active")
     active.className="image__opcion"
-
+    
     setFirstImage(e.target.src);
     e.target.className="image__opcion active";
   }
 
+  !isLoading && console.log(data);
+
   return (
     !isLoading &&
-    <>
-      <div className="row row-cols-1 mt-5 " >
-        <div className="w-100">
-          <div className="card">
-              <div className="card-top">
-                  <div className="bg-card-img">
-                    <div className="bg-top"></div>
-                    {
-                      firstImage=="" && setFirstImage(data.sprites.other.dream_world.front_default)
-                    }
-                    <div className="content__img">
+    <div className="content-card  containers">
+      <div className="card  mb-3 d-flex justify-content-center w-45 w-60" >
+          <div className="row g-0">
+            <div className={`col-md-5 ${data.types[0].type.name} position-relative p-2`}>
+            <p className="wave"></p>
+                {
+                  firstImage=="" && setFirstImage(data.sprites.other.dream_world.front_default)
+                }
+                <div className="content__img">
                       <img src={firstImage} className="img-fluid rounded-start img__principal" alt="jd" />
                     </div>
                     <div className="galeria" onClick={onChangeImage}>
@@ -46,19 +46,34 @@ export const PokemonPage = () => {
                       <img src={data.sprites.other.home.front_default} alt="" className="image__opcion" />
                       <img src={data.sprites.other.home.front_shiny} alt="" className="image__opcion" />
                     </div>
+                </div>
+            <div className="col-md-7">
+              <div className="card-body">
+                <h5 className="card-title text">{data.name}</h5>  
+                <div className="informacion__pokemon">
+                  <div className="tipo__informacion">
+                    <p>{data.weight}</p>
+                    <span>Weight</span>
                   </div>
-              </div>
-              <div className="card-body p-3">
+                  <div className="tipo__informacion">
+                    <p>#{data.id}</p>
+                    <span>Pokemon</span>
+                  </div>
+                  <div className="tipo__informacion">
+                    <p>{data.base_experience}</p>
+                    <span>Experience</span>
+                  </div>
+                </div>
                 {
                   data.stats.map((dato,i)=>(
-                  (i<3) && <CircleProgress key={i} id={i}{...dato}/>
+                  (i<4) && <CircleProgress key={i} id={i}{...dato} types={data.types[0].type.name}/>
                   )) 
                 }
               </div>
+            </div>
           </div>
         </div>
       </div>
-      </>
   )
 
 }

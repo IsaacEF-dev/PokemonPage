@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const CircleProgress = ({base_stat,stat,id}) => {
+export const CircleProgress = ({base_stat,stat,id,types}) => {
+  console.log(types)
   return (
        
     <div className="content-bar">
@@ -9,7 +10,7 @@ export const CircleProgress = ({base_stat,stat,id}) => {
             <span className="porcent">{base_stat}%</span>
         </div>
         <div className="content-progess">
-            <div className="bar__progress" style={{width:`${base_stat}%`}}>
+            <div className={`bar__progress ${types}`} style={{width:`${base_stat}%`}}>
             </div>
         </div>
     </div>
