@@ -6,7 +6,7 @@ export const useForm = (initialForm={}) => {
     
     const inputChange=({target})=>{
         const {name,value}=target
-        
+      
         setFormState({
             ...formState,
             [name]:value,

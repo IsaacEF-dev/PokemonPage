@@ -7,13 +7,24 @@ export const useFetch = (url="") => {
     })
 
     const getFech=async()=>{
-        const resp=await fetch(url);
-        const data = await resp.json();
+        console.log(url)
+        let eror=true;
+        try {
+            const resp=await fetch(url);
+        
+            const data = await resp.json();
 
-        setState({
-            data,
-            isLoading:false,
-        })
+            setState({
+                data,
+                isLoading:false,
+            })
+        } catch (error) {
+            setState({
+                data:null,
+                isLoading:false,
+            })
+        }
+        
     }
 
     useEffect(() => {

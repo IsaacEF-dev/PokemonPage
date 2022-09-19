@@ -1,8 +1,9 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { CircleProgress } from "../components/CircleProgress"
 import { useFetch } from "../hooks/useFetch"
+import {BsArrowReturnLeft} from "react-icons/all"
 
 let image1 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
 let image2 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png"
@@ -11,7 +12,7 @@ export const PokemonPage = () => {
 
   const { id } = useParams();
   let url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-
+  const navigate=useNavigate();
   const {data,isLoading} = useFetch(url)
   
   const [firstImage, setFirstImage] = useState("")
@@ -25,6 +26,10 @@ export const PokemonPage = () => {
     setFirstImage(e.target.src);
     e.target.className="image__opcion active";
   }
+  const handleBack=(e)=>{
+    navigate(-1);
+  }
+  
 
   !isLoading && console.log(data);
 
@@ -34,11 +39,10 @@ export const PokemonPage = () => {
       <div className="card  mb-3 d-flex justify-content-center w-45 w-60" >
           <div className="row g-0">
             <div className={`col-md-5 ${data.types[0].type.name} position-relative p-2`}>
-            <p className="wave"></p>
                 {
                   firstImage=="" && setFirstImage(data.sprites.other.dream_world.front_default)
                 }
-                <div className="content__img">
+                    <div className="content__img">
                       <img src={firstImage} className="img-fluid rounded-start img__principal" alt="jd" />
                     </div>
                     <div className="galeria" onClick={onChangeImage}>
@@ -46,7 +50,7 @@ export const PokemonPage = () => {
                       <img src={data.sprites.other.home.front_default} alt="" className="image__opcion" />
                       <img src={data.sprites.other.home.front_shiny} alt="" className="image__opcion" />
                     </div>
-                </div>
+            </div>
             <div className="col-md-7">
               <div className="card-body">
                 <h5 className="card-title text">{data.name}</h5>  
@@ -71,6 +75,7 @@ export const PokemonPage = () => {
                 }
               </div>
             </div>
+            <button href="" onClick={handleBack} className="to__return"><BsArrowReturnLeft/></button>
           </div>
         </div>
       </div>

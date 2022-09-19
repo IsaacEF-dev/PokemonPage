@@ -18,7 +18,7 @@ export const PokemonRoutes = () => {
             <Route path='/*' element={<Navigate to={"/pokemons"}/>}/>
 
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
     </>
   )
 }
