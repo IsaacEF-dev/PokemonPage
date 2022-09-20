@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {FcSearch,IoClose,BsArrowReturnLeft} from 'react-icons/all'
+import {FcSearch,BsArrowReturnLeft} from 'react-icons/all'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Cards } from '../components/Cards';
 import { CardSearch } from '../components/CardSearch';

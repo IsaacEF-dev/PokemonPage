@@ -4,17 +4,18 @@ import { useForm } from '../hooks/useForm';
 export const Pagination = ({data , setPagina}) => {
 
   const {formState,inputChange}=useForm({pagina:1})
-  const limite=parseInt(Math.ceil(data.count/12));
+  const limite=54;
+  
+  const movePage=(val=0)=>{
+    formState.pagina-=val;
 
-  const movePage=(val)=>{
-    
-    if((formState.pagina-val)>=1 && (formState.pagina-val)<limite){
+    (formState.pagina)<=0 && (formState.pagina=1);
+    (formState.pagina)>limite && (formState.pagina=limite);
 
-      formState.pagina-=val;
-      let move=((formState.pagina-1)*12);
+    let move=((formState.pagina-1)*12);
       
-      return `https://pokeapi.co/api/v2/pokemon?offset=${move}&limit=12`;
-    }
+    return `https://pokeapi.co/api/v2/pokemon?offset=${move}&limit=12`;
+    
   } 
 
   const onPagina=(e)=>{

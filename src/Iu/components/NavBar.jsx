@@ -13,28 +13,34 @@ export const NavBar = () => {
     }
 
     const toggle=(e)=>{
-        e.preventDefault();
-
+      e.preventDefault();
+      const getBody=document.querySelector("body");
+      
       if(e.target.className.includes("active")){
         e.target.className="slider round"
+        getBody.className="";
         return;
       }
 
       e.target.className="slider round active"
+      getBody.className="active";
+    }
+
+    const onMobileMenu=(e)=>{
+        e.preventDefault();
+        const mobileMenu=document.querySelector(".hamburger-lines");
+        const navbarItems=document.querySelector(".navbar__items");
+
+        mobileMenu.classList.toggle("active")
+        navbarItems.classList.toggle("active")
     }
 
     return (
-        <nav className="navbar navbar-expand-sm  p-3 ">
-            
-            <Link 
-                className="navbar-brand" 
-                to="/"
-            >
-                <img src="../../../assets/Pokemon-Logo.png" alt="" className='logo'/>
-            </Link>
+        <nav className="content__navbar">
+            <div className="navbar">
+                <img src="../../../assets/Pokemon-Logo.png" alt="" className="logo" />
 
-            <div className="navbar-collapse d-flex justify-content-between align-items-center">
-                <div className="navbar-nav">
+                <div className="navbar__items">
 
                     <NavLink 
                         className={({isActive})=>`nav-item nav-link ${isActive ? "active":""}`}
@@ -51,7 +57,8 @@ export const NavBar = () => {
                     </NavLink>
                     
                 </div>
-                <div className="d-flex align-items-center">
+
+                <div className="content__mode__social">
                     <div className="container__social__media">
                         <a className="social__media">
                             <ImLinkedin2 className='icon__social'/>
@@ -63,13 +70,20 @@ export const NavBar = () => {
                             <BsGlobe2 className='icon__social'/>
                         </a>
                     </div>
+
                     <label htmlFor="" className='switch'>
                         <input type="checkbox"/>
                         <span onClick={toggle} className={`slider round`}></span>
-                        
                     </label>
+
+                    <div className="hamburger-lines" onClick={onMobileMenu}>
+                        <a href="" className='line line1'></a>
+                        <a href="" className='line line2'></a>
+                        <a href="" className='line line3'></a>
+                    </div>
                 </div>
             </div>
+            
         </nav>
     )
 }

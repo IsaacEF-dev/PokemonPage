@@ -7,8 +7,6 @@ export const useFetch = (url="") => {
     })
 
     const getFech=async()=>{
-        console.log(url)
-        let eror=true;
         try {
             const resp=await fetch(url);
         

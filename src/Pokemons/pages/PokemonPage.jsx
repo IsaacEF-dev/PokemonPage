@@ -20,7 +20,7 @@ export const PokemonPage = () => {
   const onChangeImage=(e)=>{
     if(e.target.tagName!=="IMG") return ;
     
-    const active=document.querySelector(".active")
+    const active=document.querySelector(".image__opcion.active")
     active.className="image__opcion"
     
     setFirstImage(e.target.src);
@@ -36,7 +36,7 @@ export const PokemonPage = () => {
   return (
     !isLoading &&
     <div className="content-card  containers">
-      <div className="card  mb-3 d-flex justify-content-center w-45 w-60" >
+      <div className="card  mb-3 d-flex justify-content-center w-45 w-60 w-sm-90" >
           <div className="row g-0">
             <div className={`col-md-5 ${data.types[0].type.name} position-relative p-2`}>
                 {
